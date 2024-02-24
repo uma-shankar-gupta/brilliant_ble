@@ -2,11 +2,11 @@ name: brilliant_ble
 description: "A PAckage to use ble devices by brilliant.xyz"
 homepage: "https://github.com/uma-shankar-gupta/brilliant_ble"
 repository: "https://github.com/uma-shankar-gupta/brilliant_ble"
-version: 0.0.1
+version: 0.0.2
 
 environment:
-  sdk: '>=3.2.6 <4.0.0'
-  flutter: ">=1.17.0"
+  sdk: ">=2.15.1 <4.0.0"
+  flutter: ">=2.5.0"
 
 dependencies:
   flutter:
@@ -23,7 +23,13 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
+ plugin:
+    platforms:
+      android:
+        package: com.brilliant.ble
+        pluginClass: BrilliantBlePlugin
+      ios:
+        pluginClass: BrilliantBlePlugin
   # To add assets to your package, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
