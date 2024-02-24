@@ -99,7 +99,7 @@ Then after connecting to the device you can send and receive data using the foll
 ```
 
 ## TODO
-- [:heavy_check_mark:] Add support for Monocle REPL (Done)
+- [x] Add support for Monocle REPL (Done)
 - [ ] Add support for Monocle File System 
 - [ ] Add support for Monocle Data service
 - [ ] Add support for Monocle Device Firmware Update
