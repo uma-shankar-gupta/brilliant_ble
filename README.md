@@ -18,7 +18,7 @@ Install the package by adding the following to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  brilliant_ble: ^0.0.1
+  brilliant_ble: ^0.0.2
 ```
 or with flutter pub
 ```bash
