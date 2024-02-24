@@ -127,7 +127,7 @@ class BrilliantBle {
         if (state == BluetoothConnectionState.connected) {
             print("Connected to ${device!.advName}");
             _device =device;
-            await discoverServices(device!);
+            await discoverServices(device);
             if (onConnected != null)
             {
               onConnected!();

@@ -3,7 +3,6 @@ description: "A PAckage to use ble devices by brilliant.xyz"
 homepage: "https://github.com/uma-shankar-gupta/brilliant_ble"
 repository: "https://github.com/uma-shankar-gupta/brilliant_ble"
 version: 0.0.1
-homepage:
 
 environment:
   sdk: '>=3.2.6 <4.0.0'
