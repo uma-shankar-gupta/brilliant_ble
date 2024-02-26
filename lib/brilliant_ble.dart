@@ -6,7 +6,6 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:brilliant_ble/brilliant_uuid.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
 class BrilliantBle {
@@ -15,11 +14,10 @@ class BrilliantBle {
   // List of discovered devices
   final List<BluetoothDevice> _devices = [];
 
-  late BluetoothCharacteristic? _replRxCharacteristic = null;
-  late BluetoothCharacteristic? _replTxCharacteristic = null;
-  late BluetoothCharacteristic? _frameRxCharacteristic = null;
-  late BluetoothCharacteristic? _frameTxCharacteristic = null;
-  late bool _internalOperation = false;
+  late BluetoothCharacteristic? _replRxCharacteristic;
+  late BluetoothCharacteristic? _replTxCharacteristic;
+  late BluetoothCharacteristic? _frameRxCharacteristic;
+  late BluetoothCharacteristic? _frameTxCharacteristic;
   late int _mtu = 100;
   late Function _responseCallback;
   late Completer<String?> _completer; 
@@ -127,7 +125,6 @@ class BrilliantBle {
     if (_device != null &&
         await _device!.connectionState.first ==
             BluetoothConnectionState.connected) {
-      _internalOperation = true;
       if (device!.advName.toLowerCase().contains("monocle")) {
         // TODO implement file upload for monocle
       }
@@ -158,7 +155,7 @@ class BrilliantBle {
     if (_device != null &&
         await _device!.connectionState.first ==
             BluetoothConnectionState.connected) {
-              _internalOperation = true;
+
       if (device!.advName.toLowerCase().contains("monocle")) {
         // TODO implement file upload for monocle
       }
@@ -167,7 +164,6 @@ class BrilliantBle {
         await sendData(cmd);
       }
     }
-    _internalOperation = false;
     return [];
   }
   Future<void> discoverServices(BluetoothDevice device) async {
