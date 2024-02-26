@@ -54,6 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
       });
     };
     await ble!.setup();
+    print(ble!.device!.advName);
 
   }
 
@@ -146,7 +147,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       onPressed: () async {
                         
                         if (ble !=null && await ble!.isConnected()){
-                          await ble!.sendData("${_controller.text}\n\r");
+                          var data = await ble!.sendData("${_controller.text}\n\r");
+                          print(data);
                           _controller.clear();
                         }
                         

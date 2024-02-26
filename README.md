@@ -95,16 +95,47 @@ await ble.setup();
 ```
 Then after connecting to the device you can send and receive data using the following methods
 ```dart
-  await ble.sendData("print('hello world')\n\r");
-```
+  //send data to the device with waiting for response
+  var response = await ble.sendData("print('hello world')\n\r");
+  print(response); // output: hello world
+  //send data to the device without waiting for response
+  await ble.sendData("print('hello world')\n\r", wait: false);
 
+  //send upload file to the device
+  await ble.uploadFile("file.txt", "file content");
+```
+Check connection status
+```dart
+  var status = await ble.isConnected();
+  print(status); // output: true or false
+```
+Disconnect from the device
+```dart
+  await ble.disconnect();
+```
+Check name of the connected device
+```dart
+  var name = await ble.device.advName();
+  print(name); // output: monocle/frame
+```
+If want to manually scan and connect to the device
+```dart
+  await ble.scan();
+  var devices = ble.devices;
+  for (var d in devices) {
+    print(d.advName);
+  }
+
+  // connect to first device
+  var device = await ble.connect(device[0]);
+```
 ## TODO
 - [x] Add support for Monocle REPL (Done)
 - [ ] Add support for Monocle File System 
 - [ ] Add support for Monocle Data service
 - [ ] Add support for Monocle Device Firmware Update
-- [ ] Add support for Frame
-- [ ] Add support for Frame File System
+- [x] Add support for Frame (Done)
+- [ ] Add support for Frame File System (WIP)
 - [ ] Add support for Frame Device Firmware Update
 
 
