@@ -1,4 +1,4 @@
-# BrilliantBle
+# [BrilliantBle](https://pub.dev/packages/brilliant_ble)
  A Flutter package to connect to BLE devices by [brilliant Labs](https://brilliant.xyz)\
  It Uses [FlutterBluePlus](https://pub.dev/packages/flutter_blue_plus) as a dependency to connect to BLE devices.
 
@@ -18,7 +18,7 @@ Install the package by adding the following to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  brilliant_ble: ^0.0.2
+  brilliant_ble: ^0.0.3
 ```
 or with flutter pub
 ```bash
